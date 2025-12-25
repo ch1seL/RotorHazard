@@ -303,11 +303,11 @@ class ServerState:
     secondary_race_format = None
 
     _seat_color_defaults = [
-        "#0022ff",  # Blue
-        "#ff5500",  # Orange
-        "#00ff22",  # Green
         "#ff0055",  # Magenta
         "#ddff00",  # Yellow
+        "#00ff22",  # Green
+        "#0022ff",  # Blue
+        "#ff5500",  # Orange
         "#7700ff",  # Purple
         "#00ffdd",  # Teal
         "#aaaaaa",  # White
