@@ -125,17 +125,10 @@ def generateBalancedHeats(rhapi, generate_args=None):
     if total_pilots % qualifiers_per_heat:
         total_heats += 1
 
-    letters = rhapi.__('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
     heats = []
 
     for idx in range(total_heats):
-        if idx < len(letters):
-            designator = letters[idx]
-        else:
-            n = idx // len(letters)
-            designator = f"{n}{letters[idx % len(letters)]}"
-
-        heats.append(HeatPlan(designator + ' ' + suffix, []))
+        heats.append(HeatPlan(suffix + ' ' + f'{idx+1}', []))
 
     if 'seed_offset' in generate_args:
         seed_offset = max(int(generate_args['seed_offset']) - 1, 0)
@@ -198,4 +191,3 @@ def register_handlers(args):
 
 def initialize(rhapi):
     rhapi.events.on(Evt.HEAT_GENERATOR_INITIALIZE, register_handlers)
-
